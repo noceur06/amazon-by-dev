@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon (clone)</title>
+    <link rel="stylesheet" href="amazone.css" />
+    <link rel="icon" href="amazone.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="head" role="banner">
+      <div class="head-left">
+        <img class="img" src="head-amazon.png" alt="brand" />
+      </div>
+
+      <div class="search-icon" role="search">
+        <input
+          id="searchInput"
+          class="search-input"
+          type="search"
+          placeholder="Search in Amazon.in"
+          aria-label="Search products"
+        />
+        <button id="searchBtn" class="search" aria-label="Search">
+          <i class="ri-search-line" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="head-right">
+        <div
+          class="return"
+          id="ordersBtn"
+          role="button"
+          tabindex="0"
+          aria-pressed="false"
+          aria-label="Orders and Returns"
+        >
+          <h3 class="ret">Return</h3>
+          <span class="order"> & Orders</span>
+        </div>
+
+        <div
+          class="cart"
+          id="cartBtn"
+          role="button"
+          tabindex="0"
+          aria-label="Cart"
+        >
+          <i class="ri-shopping-cart-line" aria-hidden="true"></i>
+          <span class="ca">Cart (<span id="cartCount">0</span>)</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" role="main" aria-label="Main content">
+      
+      <section class="slider-wrap" aria-hidden="false">
+        <div class="image-slider" id="imageSlider" aria-live="off">
+          <div
+            class="slide image-fade"
+            style="background-image: url('amaze1.jpg')"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="slide image-fade"
+            style="background-image: url('amaze2.jpg')"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="slide image-fade"
+            style="background-image: url('amaze3.jpg')"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="slide image-fade"
+            style="background-image: url('amaze4.jpg')"
+            aria-hidden="true"
+          ></div>
+        </div>
+      </section>
+
+      
+      <section class="section top-boxes" aria-label="Top categories">
+        <div class="content1" data-category="headphones">
+          <p class="write">
+            Starting from 899 <span class="cat-name">| Headphones</span>
+          </p>
+          <div class="box-item" id="box-headphones"></div>
+        </div>
+
+        <div class="content1" data-category="phones">
+          <p class="write">
+            Starting from 599 <span class="cat-name">| Electronics</span>
+          </p>
+          <div class="box-item" id="box-phones"></div>
+        </div>
+
+        <div class="content1" data-category="home">
+          <p class="write">
+            For Your Home <span class="cat-name">| Up to 50% off</span>
+          </p>
+          <div class="box-item" id="box-home"></div>
+        </div>
+
+        <div class="content1" data-category="computer">
+          <p class="write">
+            Best Sellers <span class="cat-name">| Computer</span>
+          </p>
+          <div class="box-item" id="box-computer"></div>
+        </div>
+
+        <div class="content1" data-category="kitchen">
+          <p class="write">
+            Up to 55% off <span class="cat-name">| Kitchen</span>
+          </p>
+          <div class="box-item" id="box-kitchen"></div>
+        </div>
+
+        <div class="content1" data-category="deals">
+          <p class="write">
+            Top Deals <span class="cat-name">| Save more</span>
+          </p>
+          <div class="box-item" id="box-deals"></div>
+        </div>
+      </section>
+
+      
+      <section class="products-section" aria-label="Products">
+        <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+   
+    <div
+      id="cartModal"
+      class="modal hidden"
+      role="dialog"
+      aria-hidden="true"
+      aria-labelledby="cartTitle"
+    >
+      <div class="modal-inner">
+        <h2 id="cartTitle">Your Cart</h2>
+        <div id="cartItemsContainer"></div>
+        <div class="cart-actions">
+          <button id="closeCart" class="btn">Close</button>
+          <button id="checkoutBtn" class="btn primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div
+      id="ordersModal"
+      class="modal hidden"
+      role="dialog"
+      aria-hidden="true"
+      aria-labelledby="ordersTitle"
+    >
+      <div class="modal-inner">
+        <h2 id="ordersTitle">Orders & Returns</h2>
+        <div id="ordersContainer"></div>
+        <div class="cart-actions">
+          <button id="closeOrders" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+  
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <footer class="cont">
+      <div id="back-to-top"><a href="#">Back to Top</a></div>
+      
+        <div class="contect-me-with">Contect me with</div>
+        <div class="contect">
+        <a href="https://x.com/i_noceur?t=4rgPS4E1Enw918g_H5CMyA&s=09" id="Twitter">Twitter</a>
+        <a href="https://www.instagram.com/codewitbyte?igsh=OW51czV1OWplc3By" id="Instagram">Instagram</a>
+        <a href="https://github.com/noceur06" id="git-hub">Git-hub</a>
+        <a href="https://www.linkedin.com/in/sayyed-yasar-ali-5ab1892b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" id="linkedin">Linkedin</a>
+      </div>
+    </footer>
+
+
+    
+
+    <script src="amazone.js" defer></script>
+  </body>
+</html>

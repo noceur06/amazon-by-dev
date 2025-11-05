@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Open Sans, Roboto;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  height: 4rem;
+  width: 100%;
+  background-color: rgb(13, 6, 36);
+  color: white;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  z-index: 99;
+}
+
+.img {
+  position: relative;
+  left: 1rem;
+  top: 0.6rem;
+  height: 3rem;
+  width: 6.6rem;
+  padding: 0.4rem;
+}
+
+.img:hover {
+  border: 2px solid white;
+}
+
+.search-input {
+  height: 2.5rem;
+  width: 45rem;
+  position: relative;
+  top: 0.8rem;
+  border-radius: 0.4rem;
+}
+
+.search {
+  position: relative;
+  top: 0.9rem;
+  left: -0.5rem;
+  font-size: 1.1rem;
+  background-color: rgb(249, 183, 4);
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.search:hover {
+  border: 1px solid white;
+}
+
+.return {
+  position: relative;
+  top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.return:hover {
+  border: 2px solid white;
+}
+
+.ret {
+  font-size: 0.8rem;
+}
+
+.order {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.cart {
+  position: relative;
+  top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.3rem;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.cart:hover {
+  border: 2px solid white;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    background: linear-gradient(to right, #ffb700 20%, #ff7300 100%);
+    z-index: 999;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .search-input {
+    height: 2.5rem;
+    width: 18rem;
+    position: relative;
+    margin-left: 10%;
+    top: -0.5rem;
+    border-radius: 0.6rem;
+    padding: 0.4rem;
+  }
+
+  .search {
+    position: relative;
+    top: -0.45rem;
+    left: -2.25rem;
+    font-size: 1rem;
+    background-color: rgb(249, 183, 4);
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    z-index: 0;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+
+  .return,
+  .cart {
+    display: none;
+  }
+}
+
+.main {
+  position: relative;
+  display: flex;
+  top: 2rem;
+  z-index: 0;
+}
+
+/* Slider container: horizontal scroll, snap, no scrollbar */
+.image-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  /* keep whatever top spacing you already calculated; remove if duplicate */
+  margin-top: 2rem;
+}
+
+/* hide scrollbar */
+.image-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each banner takes full viewport width (change height to match your design) */
+.image-fade {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+
+  /* IMPORTANT: give it an explicit height so it's visible */
+  height: 600px; /* ← adjust to your banner height (was 150% before) */
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Preserve the exact fade you used (no change) */
+.image-fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* your fade: transparent until 70%, then white - keep as-is */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 70%,
+    white 100%
+  );
+  pointer-events: none;
+}
+
+section {
+  height: 70%;
+  width: 100%;
+  /* background-color: #212529; */
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  /* padding: 2rem 2rem; */
+  position: relative;
+  top: -8rem;
+  flex-direction: row;
+  justify-content: center;
+  /* overflow: auto; */
+}
+
+.content1 {
+  height: 80%;
+  width: 30%;
+  box-shadow: 0px 0px 3px black;
+  box-sizing: border-box;
+  background-color: rgba(245, 245, 245, 0.852);
+}
+
+.write {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.box-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  section {
+    position: relative;
+    top: 5rem;
+    z-index: 99;
+    height: 70rem;
+    width: 100%;
+  }
+  .content1 {
+    position: relative;
+    width: 90%;
+    height: 20rem;
+  }
+}
+
+.main1 {
+  width: 100%;
+  height: 100%;
+  padding: 2% 0;
+  position: relative;
+  top: 17rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3rem;
+  cursor: pointer;
+  padding: 1rem;
+  width: max-content;
+}
+
+.content:hover {
+  border: 1px solid black;
+}
+
+.iphone-img img {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.iphone-info {
+  color: dodgerblue;
+  text-align: start;
+}
+
+.craft {
+  font-size: 0.7rem;
+  color: grey;
+}
+.rate-icon {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+.ri-star-line {
+  color: #ff7300;
+}
+h5 {
+  color: dodgerblue;
+  font-size: 1rem;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+}
+
+h4 {
+  color: dodgerblue;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.add-to-cart {
+  height: 2rem;
+  width: 95%;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  background-color: #ffb700;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  main {
+    height: 30rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    /* background-color: beige; */
+    margin-bottom: 0;
+  }
+
+  .content {
+    height: 50%;
+    width: 80%;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+    margin-left: 0rem;
+    padding: none;
+  }
+
+  .content:hover {
+    border: none;
+  }
+}
